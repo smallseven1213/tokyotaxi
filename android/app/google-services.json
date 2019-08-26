@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "899354180968",
+    "firebase_url": "https://airgogo-42915.firebaseio.com",
+    "project_id": "airgogo-42915",
+    "storage_bucket": "airgogo-42915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899354180968:android:712d5fdb2ee53d6e",
+        "android_client_info": {
+          "package_name": "com.example.tokyo_taxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899354180968-7lhjkd80evhbdl7ik8jeht68cjdntl4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGWwWoB7h1rew8DCSW8R0h-6xRYFeIWIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899354180968-7lhjkd80evhbdl7ik8jeht68cjdntl4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
