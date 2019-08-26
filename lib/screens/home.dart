@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -24,9 +23,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TextEditingController locationController = TextEditingController();
   Completer<GoogleMapController> _controller = Completer();
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
 
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(35.681683, 139.767477),
     zoom: 14.4746,
   );
 
@@ -38,9 +38,27 @@ class _MyHomePageState extends State<MyHomePage> {
           GoogleMap(
             mapType: MapType.hybrid,
             initialCameraPosition: _kGooglePlex,
+            markers: Set<Marker>.of(markers.values),
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
             },
+            onLongPress: (LatLng latLng) {
+              var markerIdVal = new DateTime.now().millisecondsSinceEpoch.toString();
+              final MarkerId markerId = MarkerId(markerIdVal);
+
+              // creating a new MARKER
+              final Marker marker = Marker(
+                markerId: markerId,
+                position: latLng,
+                infoWindow: InfoWindow(title: markerIdVal, snippet: '*'),
+              );
+
+              setState(() {
+                // adding a new marker to map
+                markers.clear();
+                markers[markerId] = marker;
+              });
+            }
           ),
           Positioned(
             bottom: 50.0,
